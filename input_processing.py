@@ -43,18 +43,18 @@ class Sensor:
 
     def input_status_type(self):
         print("Are changes detected in the vision input?")
-        userIn = int(input("Select 1 for light, 2 for pedestrian, 3 for vehicle, or 0 to end the program: "))
-        return userIn
-    def input_status(self, userIn):
+        user_in = int(input("Select 1 for light, 2 for pedestrian, 3 for vehicle, or 0 to end the program: "))
+        return user_in
+    def input_status(self, user_in):
         try:
-            userIn2 = input("What change has been identified: ")
-            if (userIn2 == "red" or userIn2 == "green" or userIn2 == "yellow" or userIn2 == "yes" or userIn2 == "no"):
-                if (userIn == 1):
-                    self.light = userIn2
-                elif (userIn == 2):
-                    self.pedestrian = userIn2
-                elif (userIn == 3):
-                    self.vehicle = userIn2
+            user_in2 = input("What change has been identified: ")
+            if (user_in2 == "red" or user_in2 == "green" or user_in2 == "yellow" or user_in2 == "yes" or user_in2 == "no"):
+                if (user_in == 1):
+                    self.light = user_in2
+                elif (user_in == 2):
+                    self.pedestrian = user_in2
+                elif (user_in == 3):
+                    self.vehicle = user_in2
             else:
                 raise ValueError("Invalid input. Must select red, green, yellow, yes, or no")
 
