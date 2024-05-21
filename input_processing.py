@@ -20,11 +20,14 @@ class Sensor:
         """
         while True:
             try:
+                # Ask user for the type of vision input change
                 user_input = self.input_status_type()
                 if (user_input == 0):
                     break
                 elif (0 <= user_input <= 3):
+                    # Update the sensor's status based on the user's input
                     self.input_status(user_input)
+                    # Print the action message and current status after each update
                     print_message(self)
                 else:
                     raise ValueError("Invalid input. Must select 1, 2, 3, or 0")
@@ -53,6 +56,7 @@ class Sensor:
         try:
             user_in2 = input("What change has been identified: ")
             if (user_in2 == "red" or user_in2 == "green" or user_in2 == "yellow" or user_in2 == "yes" or user_in2 == "no"):
+                # Update the sensor's status based on the user's input
                 if (user_in == 1):
                     self.light = user_in2
                 elif (user_in == 2):
