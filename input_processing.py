@@ -30,10 +30,10 @@ class Sensor:
                     # Print the action message and current status after each update
                     print_message(self)
                 else:
-                    raise ValueError("Invalid input. Must select 1, 2, 3, or 0")
+                    raise ValueError("Invalid input. Must select 1, 2, 3, or 0") # Raise error if input is invalid
             except ValueError:
                 print("Invalid input. Must select 1, 2, 3, or 0\n")
-                continue
+                continue # Continue while loop until valid input is given or 0 breaks the loop.
 
     def input_status_type(self):
         """
@@ -56,7 +56,7 @@ class Sensor:
         try:
             user_in2 = input("What change has been identified: ")
             if (user_in2 == "red" or user_in2 == "green" or user_in2 == "yellow" or user_in2 == "yes" or user_in2 == "no"):
-                # Update the sensor's status based on the user's input
+                # Update the correct sensor status based on the user's input choice for type of change.
                 if (user_in == 1):
                     self.light = user_in2
                 elif (user_in == 2):
@@ -76,10 +76,12 @@ def print_message(sensor):
         sensor (Sensor): The Sensor object whose status needs to be printed.
     """
 
-    action = "Proceed"
-    if (sensor.light == "red" or sensor.pedestrian == "yes" or sensor.vehicle == "yes"):
+    action = "Proceed" # Action status is Proceed by default
+
+    # Update the action message based on the sensor's current status.
+    if (sensor.light == "red" or sensor.pedestrian == "yes" or sensor.vehicle == "yes"): # In any of these conditions one must STOP
         action = "STOP"
-    elif (sensor.light == "yellow" and sensor.pedestrian == "no" and sensor.vehicle == "no"):
+    elif (sensor.light == "yellow" and sensor.pedestrian == "no" and sensor.vehicle == "no"): # In any of these conditions one must proceed with Caution.
         action = "Caution"
     
     print(f"\n{action}")
